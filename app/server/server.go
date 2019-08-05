@@ -6,9 +6,6 @@ import (
 	"github.com/labstack/echo"
 )
 
-type server struct {
-}
-
 //Start server
 func Start() {
 	e := echo.New()
