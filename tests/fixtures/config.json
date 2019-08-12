@@ -1,0 +1,14 @@
+{
+    "production": {
+        "app_name": "GO-REST PRODUCTION",
+        "base_url": "http://localhost",
+        "port": 8080,
+        "database": {
+            "host": "localhost",
+            "port": 3600,
+            "username": "root",
+            "password": "pass",
+            "database": "ds"
+        }
+    }
+}
