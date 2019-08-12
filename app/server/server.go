@@ -2,7 +2,6 @@ package server
 
 import (
 	"net/http"
-	"os"
 	"strconv"
 
 	"../../app/config"
@@ -12,8 +11,7 @@ import (
 //Start server
 func Start() {
 	e := echo.New()
-	wd, _ := os.Getwd()
-	cfg, configErr := config.LoadEnvConfig(wd + "/app/config/config.json")
+	cfg, configErr := config.LoadEnvConfig()
 	if configErr != nil {
 		e.Logger.Fatal("Can't start server, configuration not found")
 	}

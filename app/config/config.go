@@ -30,8 +30,8 @@ func DefaultConfig() *Config {
 	}
 }
 
-func LoadEnvConfig(path string) (*Config, error) {
-	conf, err := readJsonConfigFile(path)
+func LoadEnvConfig() (*Config, error) {
+	conf, err := readJsonConfigFile(os.Getenv("CONFIG_PATH"))
 	if err != nil {
 		return nil, err
 	}

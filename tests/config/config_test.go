@@ -7,6 +7,11 @@ import (
 	"../../app/config"
 )
 
+func setup() {
+	os.Setenv("CONFIG_PATH", "../fixtures/config.json")
+	os.Setenv("ENV", "production")
+}
+
 func TestDefaultConfig(t *testing.T) {
 	cfg := config.DefaultConfig()
 	expectedDefaultCfg := &config.Config{
@@ -21,8 +26,8 @@ func TestDefaultConfig(t *testing.T) {
 }
 
 func TestLoadEnvConfig(t *testing.T) {
-	os.Setenv("ENV", "production")
-	cfg, err := config.LoadEnvConfig("../fixtures/config.json")
+	setup()
+	cfg, err := config.LoadEnvConfig()
 	if err != nil {
 		t.Errorf("Config Initialization Error %v\n", err)
 	}
@@ -34,7 +39,9 @@ func TestLoadEnvConfig(t *testing.T) {
 }
 
 func TestNoEnvPassedShouldReturnDefaultConfig(t *testing.T) {
-	cfg, err := config.LoadEnvConfig("../fixtures/config.json")
+	setup()
+	os.Setenv("ENV", "")
+	cfg, err := config.LoadEnvConfig()
 	if err != nil {
 		t.Errorf("Can't load config %v\n", err)
 	}
