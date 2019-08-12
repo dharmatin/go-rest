@@ -1,6 +1,6 @@
 {
     "dev": {
-        "app_name": "GO-REST PRODUCTION",
+        "app_name": "GO-REST DEVELOPMENT",
         "base_url": "http://localhost",
         "port": 8080,
         "database": {
@@ -15,6 +15,6 @@
 
     },
     "production": {
-        
+
     }
 }
